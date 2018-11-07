@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quotes Page</title>
+    <style>
+        hr {
+            height:3px;
+            background-color:black;
+        }
+        p {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+@using quoting_dojo.Models
+@model List<Dictionary<string,object>>        
+
+
+        <h1>All posted Quotes:</h1>
+        <div>   
+            @foreach(var item in @Model)
+            {
+                <p>@item["id"]</p>
+                <p>"@item["description"]"</p>
+                <p>Name: @item["name"]</p>
+                <hr>
+            }
+        </div>
+
+</body>
+</html>

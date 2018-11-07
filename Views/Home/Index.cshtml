@@ -1,0 +1,56 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            text-align:center;
+        }
+        input {
+            display:block;
+            margin:auto;
+        }
+        input[type="submit"] {
+            display:inline-block;
+            margin-top:20px;
+            margin-left:20px;
+        }
+        label {
+            display: :block;
+        }
+        textarea {
+            display:block;
+            margin:auto;
+            width:30%;
+            height:300px;
+        }
+        span {
+            color:red;
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    @using quoting_dojo.Models
+    @model Quote
+    <h1>Welcome to Quoting Dojo</h1>
+    <form asp-action="AddQuote" asp-controller="Home" method="post">
+    <span asp-validation-for="Name"></span>
+    <label>Your Name : </label>
+    <input asp-for="Name">
+    <span asp-validation-for="Description"></span>
+    <label>Your Quote : </label>
+    <textarea name="Description"></textarea>
+    <input type="submit" value="Add my Quote!">
+    </form>
+    <form action="/quotes" method="get">
+    <input type="submit" value="Skip to Quotes">
+    </form>
+</body>
+</html>
